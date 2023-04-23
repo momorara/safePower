@@ -14,3 +14,4 @@ microSDが壊れて起動できなくなることがあります。
 何気に、shutdownコマンドを入力して、シャットダウンを確認してから電源を切るのが
 面倒な人に最適です。
 
+git clone https://github.com/momorara/safePower でラズパイにダウンロードしてください。
