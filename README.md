@@ -21,3 +21,5 @@ git clone https://github.com/momorara/safePower でラズパイにダウンロ�
 
 2023/4/30
   取扱説明書、組立説明書、部品図面をアップしました。
+2023/5/7
+  組立説明書修正
