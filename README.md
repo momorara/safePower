@@ -24,3 +24,9 @@ git clone https://github.com/momorara/safePower でラズパイにダウンロ�
   
 2023/5/7
   組立説明書修正
+
+
+ライセンスについて
+AHT10関係はAHT10_licence.txtに記述してあります。
+BMP180については、lib_BMP180.pyの中に記述してあります。
+その他についてオリジナル部分は180と同じThe MIT License (MIT)とします。
