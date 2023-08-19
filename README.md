@@ -34,7 +34,7 @@ git clone https://github.com/momorara/safePower<br>
 お問い合わせに関しては、サポート.txtを参照ください。><br>
 
 <h4><<動作環境>>></h4>
-2023/8/4 対応OS：Buster版、Bullseye版(〜11.7)での動作を確認しています。<br>
+2023/8/4 対応OS：Buster版、Bullseye版(〜11.7)での動作を確認しています。 <br>
 
 <h4><<ライセンス>></h4>
 使用しているライブラリについては、ライブラリ制作者のライセンス規定を参照ください。
