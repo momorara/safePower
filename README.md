@@ -42,3 +42,6 @@ git clone https://github.com/momorara/safePower<br>
 Released under the MIT license です。
 プログラム自体はサンプルプログラムです。
 
+<h4><<アップデート>></h4>
+回路の見直しにより、POW_off_SWをソフトプルアップとした。<br>
+
