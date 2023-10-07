@@ -3,7 +3,7 @@
 
 """
 ###########################################################################
-# sw1 により電源を投入し、sw2　によりシャットダウンの後、電源を切る。
+# sw1 により電源を投入し、sw2によりシャットダウンの後、電源を切る。
 
 #Filename      :safePower.py
 
@@ -11,6 +11,7 @@
 2021/11/23  safePower基板がないと GPIOが常に0なので、とてふが押されたと判断して
             起動後速攻でシャットダウンしてしまう。
             1→0を検知して動作するようにする。
+2023/10/07  POW_off_SWをソフトプルアップとした
 
 scp -r LongLife/safePower pi@192.168.68.107:/home/pi/safePower
 ############################################################################
@@ -61,7 +62,8 @@ def main():
     GPIO.setwarnings(False)
     #set the gpio modes to BCM numbering
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(POW_off_SW,GPIO.IN)
+    # GPIO.setup(POW_off_SW,GPIO.IN)
+    GPIO.setup(POW_off_SW, GPIO.IN, pull_up_down=GPIO.PUD_UP) 
     GPIO.setup(Ry_off,GPIO.OUT,initial=GPIO.LOW)
 
     # 立ち下がり検出
