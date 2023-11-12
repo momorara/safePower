@@ -35,6 +35,8 @@ git clone https://github.com/momorara/safePower<br>
 
 <h4><<動作環境>>></h4>
 2023/8/4 対応OS：Buster版、Bullseye版(〜11.7)での動作を確認しています。 <br>
+2023/11 bookwormがリリースされ、Legacyがbullseyeとなりました。その時点で何か変更があるのか、こちらでも検証中です。<br>
+少なくともbookwormでの検証はこれからです。<br>
 
 <h4><<ライセンス>></h4>
 使用しているライブラリについては、ライブラリ制作者のライセンス規定を参照ください。
