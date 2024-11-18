@@ -48,3 +48,6 @@ Released under the MIT license です。
 <h4><<アップデート>></h4>
 回路の見直しにより、POW_off_SWをソフトプルアップとした。<br>
 
+<h4><<サポート窓口>></h4>
+  メールアドレスが　tkj-works@mbr.nifty.com に変更になっています。<br>
+  資料等を修正中ですが、ご注意ください。<br>
