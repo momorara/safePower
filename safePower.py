@@ -12,16 +12,13 @@
             起動後速攻でシャットダウンしてしまう。
             1→0を検知して動作するようにする。
 2023/10/07  POW_off_SWをソフトプルアップとした
-
-scp -r LongLife/safePower pi@192.168.68.107:/home/pi/safePower
+2025/01/03  gpiozero使用に改造
 ############################################################################
 """
-
-import RPi.GPIO as GPIO
+from gpiozero import Button, LED
 import time
 import subprocess
 import configparser
-
 import datetime
 import getpass
 
@@ -29,61 +26,48 @@ import getpass
 dt_now = datetime.datetime.now()
 print(dt_now)
 user_name = getpass.getuser()
-print('user_name',user_name)
-path = '/home/' + user_name + '/safePower/' # cronで起動する際には絶対パスが必要
+print('user_name', user_name)
+path = f'/home/{user_name}/safePower/'  # cronで起動する際には絶対パスが必要
 print(path)
 
-# config,iniから値取得
+# config.iniから値取得
 # --------------------------------------------------
-# configparserの宣言とiniファイルの読み込み
 config_ini = configparser.ConfigParser()
 config_ini.read(path + 'config.ini', encoding='utf-8')
 # --------------------------------------------------
-# config,iniから値取得
-Ry_off = int(config_ini.get('DEFAULT', 'Ry_off'))
-POW_off_SW = int(config_ini.get('DEFAULT', 'POW_off_SW'))
+Ry_off_pin = int(config_ini.get('DEFAULT', 'Ry_off'))
+POW_off_SW_pin = int(config_ini.get('DEFAULT', 'POW_off_SW'))
 
-def event_callback(POW_off_SW):
-    if (GPIO.input(POW_off_SW)):
-        print ("GPIO[ %d ] の on が発生しました" % POW_off_SW)
-        print('on')
-    else:
-        print ("GPIO[ %d ] の off が発生しました" % POW_off_SW)
+# GPIOピン設定
+relay = LED(Ry_off_pin)  # リレーをLEDとして制御
+power_button = Button(POW_off_SW_pin, pull_up=True)
 
-        print('POW_off_SW が押されました。')
-        GPIO.output(Ry_off,GPIO.HIGH)
-        print('約30秒後に電源を切るカウントを始めます。')
-        time.sleep(2)
-        print('シャットダウンします。')
-        subprocess.run('sudo shutdown now',shell=True)
+# イベントコールバック関数
+def power_off():
+    print(f"GPIO[{POW_off_SW_pin}] の off が発生しました")
+    print('POW_off_SW が押されました。')
 
-#main function
+    print('約30秒後に電源を切るカウントを始めます。')
+    relay.on()  # リレーをONにする
+
+    print('シャットダウンします。')
+    subprocess.run('sudo shutdown now', shell=True)
+
+    time.sleep(30)  # 30秒待機  これは無くても既にシャットダウンシーケンス実行中
+
+
+# ボタン押下時のイベント設定
+power_button.when_released = power_off
+
+# メインループ
 def main():
-    GPIO.setwarnings(False)
-    #set the gpio modes to BCM numbering
-    GPIO.setmode(GPIO.BCM)
-    # GPIO.setup(POW_off_SW,GPIO.IN)
-    GPIO.setup(POW_off_SW, GPIO.IN, pull_up_down=GPIO.PUD_UP) 
-    GPIO.setup(Ry_off,GPIO.OUT,initial=GPIO.LOW)
-
-    # 立ち下がり検出
-    GPIO.add_event_detect(POW_off_SW, GPIO.FALLING, callback=event_callback, bouncetime=1000)
-
-    while True:
-        time.sleep(0.5)
-    
-
-#define a destroy function for clean up everything after the script finished
-def destroy():
-    #release resource
-    GPIO.cleanup()
-#
-# if run this script directly ,do:
-if __name__ == '__main__':
     try:
-        main()
-    #when 'Ctrl+C' is pressed,child program destroy() will be executed.
+        print("安全な電源管理スクリプトが実行中です。終了するにはCtrl+Cを押してください。")
+        while True:
+            time.sleep(0.5)
     except KeyboardInterrupt:
-        destroy()
+        print("プログラムを終了します。")
 
-   
+# スクリプトを直接実行する場合
+if __name__ == '__main__':
+    main()
