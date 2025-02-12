@@ -24,6 +24,10 @@ microSDが壊れて起動できなくなることがあります。<br>
 ・基板のバージョンが変わる場合がありますが、機能等に違いはありません。<br>
 ・ラズパイは付属しません。<br>
 
+<h4><<基板バージョンについて>></h4>
+v1:リレー式のsafePowerです。基板v03まで<br>
+v2:FET式のsafePowerです。基板v06以降です。(safePower2と呼称する場合もあります)<br>
+
 <h4><<使用方法>></h4>
 git clone https://github.com/momorara/safePower<br>
 でラズパイにダウンロードしてください。<br>
