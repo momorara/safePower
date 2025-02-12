@@ -1,0 +1,11 @@
+インストール
+
+git clone https://github.com/momorara/safePower でラズパイにダウンロードしてください。
+
+crontab -e にてcrontab.txtの内容をセットしてください。
+
+設定プラグを変更する場合は、
+config.iniを変更してください。
+
+
+ 
