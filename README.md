@@ -47,7 +47,9 @@ git clone https://github.com/momorara/safePower<br>
 少なくともbookwormでの検証はこれからです。<br>
 2024/2/22 Pi5を調達しBookWormで検証しましたが、動作しませんでした。<br>
 まぁ、Pi5には電源スイッチがついているので、必要ないのかもしれません...<br>
-2025/01/03　動作環境としてはZero〜PB4Bで、OSはBulleye11.11となります。
+  以下safePower2<br>
+2025/01/03　動作環境としてはZero〜PB4Bで、OSはBulleye11.11で確認できました。<br>
+2025/02/14　BookWorm動作環境としてはPB4BにてOSは12.8で確認できました。<br>
 
 <h4><<ライセンス>></h4>
 使用しているライブラリについては、ライブラリ制作者のライセンス規定を参照ください。
