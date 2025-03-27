@@ -50,6 +50,8 @@ git clone https://github.com/momorara/safePower<br>
   以下safePower2<br>
 2025/01/03　動作環境としてはZero〜PB4Bで、OSはBulleye11.11で確認できました。<br>
 2025/02/14　BookWorm動作環境としてはPB4BにてOSは12.9で確認できました。<br>
+2025/03/27　BookWorm動作環境としてはPB5にてOSは12.10(64bit)で確認できました。<br>
+ただし、CPU負荷を大きくかけたりUSB機器を接続して消費電力をかけると電圧低下でダウンします。<br>
 
 <h4><<ライセンス>></h4>
 使用しているライブラリについては、ライブラリ制作者のライセンス規定を参照ください。
