@@ -26,7 +26,7 @@ microSDが壊れて起動できなくなることがあります。<br>
 
 <h4><<基板バージョンについて>></h4>
 v1:リレー式のsafePowerです。基板v03まで<br>
-v2:FET式のsafePowerです。基板v06以降です。(safePower2と呼称する場合もあります)<br>
+v2:FET式のsafePowerです。基板v06以降です。(safePowerV2と呼称する場合もあります)<br>
 
 <h4><<使用方法>></h4>
 git clone https://github.com/momorara/safePower<br>
@@ -44,13 +44,13 @@ git clone https://github.com/momorara/safePower<br>
 少なくともbookwormでの検証はこれからです。<br>
 2024/2/22 Pi5を調達しBookWormで検証しましたが、動作しませんでした。<br>
 まぁ、Pi5には電源スイッチがついているので、必要ないのかもしれません...<br>
-  以下safePower2<br>
+  以下safePowerV2<br>
 2025/01/03　動作環境としてはZero〜PB4Bで、OSはBulleye11.11で確認できました。<br>
 2025/02/14　BookWorm動作環境としてはPB4BにてOSは12.9で確認できました。<br>
 2025/03/27　BookWorm動作環境としてはPB5にてOSは12.10(64bit)で確認できました。<br>
 ただし、CPU負荷を大きくかけたりUSB機器を接続して消費電力をかけると電圧低下でダウンします。<br>
 2025/06/18 対応OS：Bookworm版12.11(64bit)にて動作確認しました。<br>
-ただし、ラズパイ5では不安定なので、動作対象外とさせていただきます。ラズパイ4Bまでで使用してください。
+ただし、ラズパイ5では電源容量の関係で不安定なので、動作対象外とさせていただきます。ラズパイ4Bまでで使用してください。
 
 <h4><<ライセンス>></h4>
 使用しているライブラリについては、ライブラリ制作者のライセンス規定を参照ください。
